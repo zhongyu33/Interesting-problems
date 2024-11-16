@@ -58,4 +58,4 @@ void solve() {
     }
     return;
 }
-```c++
+```
