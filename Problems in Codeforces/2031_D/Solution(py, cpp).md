@@ -1,4 +1,4 @@
-[题目链接](codeforces.com/contest/2031/problem/D)
+[题目链接](https://codeforces.com/contest/2031/problem/D)
 <br>**提示1** 答案是否满足某种单调性？
 <br>**提示2** 答案的最后一个值可以很容易确定，那么怎么向前递推呢？
 <br>可以容易想到，答案一定是单调不减的，而且最后一个数字一定为max(nums)
