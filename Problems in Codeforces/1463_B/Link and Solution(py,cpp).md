@@ -28,7 +28,7 @@ def solve():
     print(*ans)
 ```
 <br>
-<br>以下是c++代码(解法一)———
+以下是c++代码(解法一)———
 ```c++
 void solve() {
     int n;
@@ -58,7 +58,7 @@ void solve() {
     cout << endl;
     return;
 }
-```
+```     
 <br>以下是python代码(解法二)———
 ```python
 def solve():
