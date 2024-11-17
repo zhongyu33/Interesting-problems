@@ -80,36 +80,35 @@ def solve():
 ```
 <br>
 <br>以下是c++代码(解法二)———
-```
+```c++
 void solve() {
     int n;
     cin >> n;
-    vector<int>nums(n);
-    vector<int>ans(n, 1);
-    for (int i = 0; i < n; i++){
-        cin >> nums[i];
+    vector<int>a(n), suf(n), pre(n);
+    
+    for(int i = 0; i < n; i++){
+        cin >> a[i];
+        suf[i] = a[i];
+        pre[i] = a[i];
     }
-    int tar = *min_element(nums.begin(), nums.end());
-    for (int i = 0; i < n; i++){
-        int l = 0;
-        int r = 32;
-        while(l < r){
-            int mid = (l + r + 1) / 2;
-            ll cur = pow(2, mid);
-            if (tar * cur >= nums[i]){
-                r = mid - 1;
-            }
-            else{
-                l = mid;
-            }
+    for(int i = 1; i < n; i++){
+        pre[i] = max(pre[i], pre[i - 1]);
+    }
+    for(int i = n - 2; i > -1; i--){
+        suf[i] = min(suf[i], suf[i + 1]);
+    }
+    a[n - 1] = *max_element(a.begin(), a.end());
+    for(int i = n - 2; i > -1; i--){
+        if(pre[i] > suf[i + 1]){
+            a[i] = a[i + 1];
         }
-        ans[i] = pow(2, l) * tar;
+        else{
+            a[i] = pre[i];
+        }
     }
-    for(int i : ans){
+    for(int i : a){
         cout << i << ' ';
     }
-    cout << endl;
     return;
 }
-
 ```
