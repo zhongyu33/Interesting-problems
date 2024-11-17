@@ -29,6 +29,7 @@ def solve():
 ```
 <br>
 以下是c++代码(解法一)———
+<br>
 ```
 void solve() {
     int n;
@@ -58,7 +59,8 @@ void solve() {
     cout << endl;
     return;
 }
-```     
+``` 
+
 <br>以下是python代码(解法二)———
 ```
 def solve():
@@ -80,35 +82,36 @@ def solve():
 ```
 <br>
 <br>以下是c++代码(解法二)———
+<br>
 ```c++
 void solve() {
     int n;
     cin >> n;
-    vector<int>a(n), suf(n), pre(n);
-    
-    for(int i = 0; i < n; i++){
-        cin >> a[i];
-        suf[i] = a[i];
-        pre[i] = a[i];
+    vector<int>nums(n);
+    vector<int>ans(n, 1);
+    for (int i = 0; i < n; i++){
+        cin >> nums[i];
     }
-    for(int i = 1; i < n; i++){
-        pre[i] = max(pre[i], pre[i - 1]);
-    }
-    for(int i = n - 2; i > -1; i--){
-        suf[i] = min(suf[i], suf[i + 1]);
-    }
-    a[n - 1] = *max_element(a.begin(), a.end());
-    for(int i = n - 2; i > -1; i--){
-        if(pre[i] > suf[i + 1]){
-            a[i] = a[i + 1];
+    int tar = *min_element(nums.begin(), nums.end());
+    for (int i = 0; i < n; i++){
+        int l = 0;
+        int r = 32;
+        while(l < r){
+            int mid = (l + r + 1) / 2;
+            ll cur = pow(2, mid);
+            if (tar * cur >= nums[i]){
+                r = mid - 1;
+            }
+            else{
+                l = mid;
+            }
         }
-        else{
-            a[i] = pre[i];
-        }
+        ans[i] = pow(2, l) * tar;
     }
-    for(int i : a){
+    for(int i : ans){
         cout << i << ' ';
     }
+    cout << endl;
     return;
 }
 ```
