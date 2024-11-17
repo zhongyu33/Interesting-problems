@@ -27,10 +27,8 @@ def solve():
             ans[i] = nums[i]
     print(*ans)
 ```
-<br>
 以下是c++代码(解法一)———
-<br>
-```
+```c++
 void solve() {
     int n;
     cin >> n;
@@ -62,7 +60,7 @@ void solve() {
 ``` 
 
 <br>以下是python代码(解法二)———
-```
+```python
 def solve():
     n = int(input())
     nums = list(map(int, input().split()))
@@ -82,7 +80,6 @@ def solve():
 ```
 <br>
 <br>以下是c++代码(解法二)———
-<br>
 ```c++
 void solve() {
     int n;
