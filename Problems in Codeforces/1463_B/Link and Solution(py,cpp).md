@@ -29,7 +29,7 @@ def solve():
 ```
 <br>
 以下是c++代码(解法一)———
-```c++
+```
 void solve() {
     int n;
     cin >> n;
@@ -60,7 +60,7 @@ void solve() {
 }
 ```     
 <br>以下是python代码(解法二)———
-```python
+```
 def solve():
     n = int(input())
     nums = list(map(int, input().split()))
@@ -80,7 +80,7 @@ def solve():
 ```
 <br>
 <br>以下是c++代码(解法二)———
-```c++
+```
 void solve() {
     int n;
     cin >> n;
