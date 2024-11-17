@@ -58,7 +58,6 @@ void solve() {
     return;
 }
 ``` 
-
 <br>以下是python代码(解法二)———
 ```python
 def solve():
@@ -78,7 +77,6 @@ def solve():
         ans[i] = tar * pow(2, l)
     print(*ans)
 ```
-<br>
 <br>以下是c++代码(解法二)———
 ```c++
 void solve() {
