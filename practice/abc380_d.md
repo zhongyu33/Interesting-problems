@@ -1,5 +1,5 @@
 [题目链接](https://atcoder.jp/contests/abc380/tasks/abc380_d)
-<br>下面是python代码————:
+<br>下面是python代码———:
 ```python
 def change(i):
     if i >= "a":
@@ -28,7 +28,7 @@ def solve():
         ans.append(dfs(i))
     print(*ans)
 ```
-<br>下面是c++代码:
+<br>下面是c++代码———:
 ```c++
 char change(char i) {
     if (i >= 'a') {
