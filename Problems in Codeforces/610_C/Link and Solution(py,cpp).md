@@ -12,6 +12,11 @@
 <br> $k+1$:
 <br>**
 <br>*+
+<br> $k+2$:
+<br>****
+<br>*+*+
+<br>**++
+<br>*++*
 <br>可以发现，一二三象限不变，4象限取反即可。
 
 Python 做法如下——
@@ -59,8 +64,7 @@ vector<char> change(const vector<char> &cur){
 vector<vector<char>> dfs(int i){
     vector<vector<char>>ans;
     if(i == 0){
-        ans.push_back({'+'});
-        return ans;
+        return {{'+'}};
     }
     vector<vector<char>> last = dfs(i - 1);
     for(auto j : last){
