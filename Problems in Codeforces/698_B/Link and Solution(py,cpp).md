@@ -66,51 +66,69 @@ def main():
 C++ 做法如下——
 
 ```cpp []
-int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
+int find(int i, vector<int> &g){
+    if(g[i] == i){
+        return i;
+    }
+    return g[i] = find(g[i], g);
+}
 
+void solve(){
     int n;
     cin >> n;
-
-    vector<int> nums(n);
-    for (auto &v: nums)
-        cin >> v, v --;
-    
-    int rt = -1;
-    for (int i = 0; i < n; i ++) {
-        if (nums[i] == i) {
-            rt = i;
-        }
-    }
-
     int ans = 0;
-    vector<int> vis(n, -1);
-
-    for (int i = 0; i < n; i ++) {
-        if (vis[i] == -1) {
-            int u = i;
-            while (vis[u] == -1) {
-                vis[u] = i;
-                u = nums[u];
+    vector<int>a(n);
+    bool f = false;
+    int root = -1;
+    for(int i = 0; i < n; i++){
+        cin >> a[i];
+        if(a[i] == i + 1){
+            if(f){
+                a[i] = root;
+                ans += 1;
             }
-
-            if (vis[u] == i && u != rt) {
-                ans ++;
-                if (rt >= 0) nums[u] = rt;
-                else {
-                    nums[u] = u;
-                    rt = u;
-                }
+            else{
+                f = true;
+                root = i + 1;
             }
         }
     }
+    vector<int>g(n + 1);
+    for(int i = 0; i < n + 1; i++){
+        g[i] = i;
+    }
+    for(int i = 0; i < n; i++){
 
-    cout << ans << '\n';
-    for (auto &x: nums)
-        cout << x + 1 << ' ';
-
-    return 0;
+        if(i + 1 == root) continue;
+        int x = find(i + 1, g);
+        int y = find(a[i], g);
+        if(x == y){
+            if(!f){
+                a[i] = i + 1;
+                root = i + 1;
+                ans++;
+                f = true;
+            }
+            else{
+                ans += 1;
+                a[i] = root;
+            }
+        }
+        x = find(i + 1, g);
+        y = find(a[i], g);
+        if(x < y){
+            g[y] = x;
+        }
+        if (x > y){
+            g[x] = y; 
+        }
+    }
+    cout << ans << endl;
+    for(int i : a){
+        cout << i << ' ';
+    }
+    cout << endl;
+    return;
+}  
 }
 ```
